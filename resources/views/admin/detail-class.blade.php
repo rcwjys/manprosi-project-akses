@@ -43,7 +43,7 @@
                         href="{{ route('admin.medicine-class') }}">Kembali</a>
 
                     <a class="btn btn-warning mt-4 submit-button edit-button"
-                        href="/medicine-class/detail/edit/<?= $MedicineClass->therapyClassId ?>" name="edit-btn">Edit Data
+                        href="/medicine-class/detail/edit/<?= $MedicineClass->therapyClassId ?>" name="edit-btn">Edit Kelas
                         Obat</a>
 
                     <a type="button" class="btn btn-danger mt-4 delete-button ml-3"

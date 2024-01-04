@@ -70,6 +70,14 @@ route::put('/medicine-sub-class/detail/edit', [subClassController::class, 'submi
 
 route::get('/medicine-recipe', [RecipeController::class, 'index'])->name('admin.recipe')->middleware([AuthMiddleware::class]);
 
+route::get('create-recipe-data', [RecipeController::class, 'getRecipeForm'])->middleware([AuthMiddleware::class])->name('admin.createRecipeData');
+
+route::post('store-recipe-data', [RecipeController::class, 'storeRecipeData'])->middleware([AuthMiddleware::class])->name('admin.storeRecipeData');
+
+route::get('/edit-recipe-data/{recipeId}', [RecipeController::class, 'editRecipeData'])->middleware([AuthMiddleware::class]);
+
+route::put('/update-recipe-data/{recipeId}', [RecipeController::class, 'updateRecipeData']);
+
 route::get('/delete-recipe-data/{recipeId}', [RecipeController::class, 'destroy'])->middleware([AuthMiddleware::class]);
 
 

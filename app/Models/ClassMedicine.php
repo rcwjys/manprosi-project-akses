@@ -15,6 +15,5 @@ class ClassMedicine extends Model
 
     protected $guarded = ['therapyClassId'];
 
-    protected $fillable = ['therapyClassName', 'created_at','updated_at'];
-
+    protected $fillable = ['therapyClassName', 'created_at', 'updated_at'];
 }

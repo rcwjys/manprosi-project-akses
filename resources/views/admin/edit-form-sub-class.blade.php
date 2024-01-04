@@ -38,7 +38,8 @@
                     </div>
                     <input type="hidden" name="subTherapyClassId" value="{{ $subMedicineClass->subTherapyClassId }}">
                 </div>
-                <a href="{{ route('admin.medicine-sub-class') }}" class="btn btn-primary back-btn">Kembali</a>
+                <a href="{{ url('/medicine-sub-class/detail/' . $subMedicineClass->subTherapyClassId) }}"
+                    class="btn btn-primary back-btn">Kembali</a>
 
 
                 <button type="submit" name="submit" class="btn btn-primary submit-button ml-3">Edit</button>

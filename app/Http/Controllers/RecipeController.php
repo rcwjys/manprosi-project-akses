@@ -22,6 +22,36 @@ class RecipeController extends Controller
         return view('admin.recipe', compact('recipes'));
     }
 
+    public function getRecipeForm()
+    {
+        return view('admin.add-recipe');
+    }
+
+    public function storeRecipeData(Request $req)
+    {
+        $validatedRecipeData = $req->validate([
+            'recipe' => ['unique:medicinerecipes', 'required'],
+        ]);
+
+        Recipe::create($validatedRecipeData);
+        session()->flash('recipeDataSuccessfulyCreated', 'Pembuatan data resep berhasil');
+        return redirect(route('admin.recipe'));
+    }
+
+    public function editRecipeData(Request $req)
+    {
+        $recipeData = Recipe::find($req->recipeId);
+        return view('admin.edit-form-recipe', compact('recipeData'));
+    }
+
+    public function updateRecipeData(Request $req)
+    {
+        $recipe = Recipe::find($req->recipeId);
+        $recipe->recipe = $req->recipe;
+        $recipe->save();
+        session()->flash('recipeDataSuccessfulyUpdated', 'Pembaharuan data resep berhasil');
+        return redirect(route('admin.recipe'));
+    }
 
     public function destroy(Request $req)
     {

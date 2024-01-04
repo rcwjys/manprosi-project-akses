@@ -2,7 +2,7 @@
 @extends('admin.template.main-template')
 
 <!-- Set Title Halaman -->
-@section('title', 'Edit  Kelas Obat | UPTD Puskesmas Babakan Tarogong')
+@section('title', 'Edit Kelas Obat | UPTD Puskesmas Babakan Tarogong')
 
 @section('class', 'active')
 
@@ -11,7 +11,7 @@
 
     <main>
         <div class="container mt-5">
-        <form action="/medicine-class/detail/edit" method="POST">
+            <form action="/medicine-class/detail/edit" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="form-row">
@@ -19,8 +19,7 @@
                         <label for="inputPassword4">ID Kelas Terapi</label>
                         <input type="text" name="therapyClassID"
                             class="form-control @error('therapyClassID') is-invalid @enderror" required
-                            value="{{ $MedicineClass->therapyClassId }}" id="inputPassword4"
-                            disabled>
+                            value="{{ $MedicineClass->therapyClassId }}" id="inputPassword4" disabled>
                         @error('therapyClassID')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -41,7 +40,8 @@
                     </div>
                     <input type="hidden" name="therapyClassId" value="{{ $MedicineClass->therapyClassId }}">
                 </div>
-                <a href="{{ route('admin.edit-form-class', ['TherapyClassId' => $MedicineClass->therapyClassId]) }}" class="btn btn-primary back-btn">Kembali</a>
+                <a href="{{ url('/medicine-class/detail/' . $MedicineClass->therapyClassId) }}"
+                    class="btn btn-primary back-btn">Kembali</a>
                 <button type="submit" name="submit" class="btn btn-primary submit-button ml-3">Edit</button>
 
             </form>

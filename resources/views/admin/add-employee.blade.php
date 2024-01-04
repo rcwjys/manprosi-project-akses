@@ -12,50 +12,37 @@
         <div class="container mt-5">
             <form action="" method="POST">
                 @csrf
-
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputemployeeName">Name</label>
-                        <input type="text" name="employeeName"
-                            class="form-control" required
-                            id="inputemployeeName"
+                        <input type="text" name="employeeName" class="form-control" required id="inputemployeeName"
                             placeholder="Nama Karyawan">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="exampleInputEmail1">Email</label>
-                        <input type="email" name="employeeEmail"
-                            class="form-control" required
-                            id="inputemployeeEmail"
+                        <input type="email" name="employeeEmail" class="form-control" required id="inputemployeeEmail"
                             placeholder="Email Karyawan">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="exampleInputAlamat1">Address</label>
-                        <input type="text" name="employeeAddress"
-                            class="form-control" required
-                            id="inputemployeeAddress"
+                        <input type="text" name="employeeAddress" class="form-control" required id="inputemployeeAddress"
                             placeholder="Alamat Karyawan">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="exampleInputPhone">Phone</label>
-                        <input type="number" name="employeePhone"
-                            class="form-control" required
-                            id="inputemployeePhone"
+                        <input type="number" name="employeePhone" class="form-control" required id="inputemployeePhone"
                             placeholder="Nomor Karyawan">
                     </div>
 
                     <div class="form-group col-md-6">
                         <label for="inputPassword4">Password</label>
-                        <input type="password" name="employeePassword"
-                            class="form-control" required
-                            id="inputemployeePassword"
-                            placeholder="Password Karyawan">
+                        <input type="password" name="employeePassword" class="form-control" required
+                            id="inputemployeePassword" placeholder="Password Karyawan">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputConfirmPassword4">Confirm Password</label>
-                        <input type="password" name="employeeConfirmPassword"
-                            class="form-control" required
-                            id="inputemployeeConfirmPassword"
-                            placeholder="Confirm Password">
+                        <input type="password" name="employeeConfirmPassword" class="form-control" required
+                            id="inputemployeeConfirmPassword" placeholder="Confirm Password">
                     </div>
 
                     @if ($errors->has('employeeEmail'))

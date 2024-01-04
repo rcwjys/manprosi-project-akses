@@ -56,9 +56,10 @@
                             <td scope="row">{{ $employee->employeePhone }}</td>
                             <td scope="row">{{ $employee->employeeAddress }}</td>
                             <td scope="row">
-                                <a class="btn medicine-add-btn"
-                                    href="{{ url('/employee/edit-employee/' . $employee->employeeId) }}"
-                                    name="edit-btn">Edit</a>
+                                <a href="{{ url('/employee/edit-employee/' . $employee->employeeId) }}" name="edit-btn">
+                                    <i class="fa-regular fa-pen-to-square fa-lg"
+                                        style="color: #019f90; font-size: 1.5em"></i>
+                                </a>
                             </td>
                         </tr>
                     @endforeach

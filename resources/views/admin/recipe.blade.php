@@ -19,6 +19,20 @@
                     </div>
                 @endif
 
+                @if (session()->has('recipeDataSuccessfulyUpdated'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('recipeDataSuccessfulyUpdated') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+
+                @if (session()->has('recipeDataSuccessfulyCreated'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('recipeDataSuccessfulyCreated') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+
                 @if (session()->has('recipeFailedDeleted'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         {{ session('recipeFailedDeleted') }}
@@ -27,7 +41,7 @@
                 @endif
 
                 <!-- Add Medicine Button -->
-                <a href="{{ route('admin.create-sub-class') }}" class="btn btn-primary mt-5 medicine-add-btn">+ Tambah Data
+                <a href="{{ route('admin.createRecipeData') }}" class="btn btn-primary mt-5 medicine-add-btn">+ Tambah Data
                     Resep </a>
                 <div class="card mt-3">
                     <div class="card-header text-center">
@@ -61,7 +75,7 @@
                                     {{ \Carbon\Carbon::parse($recipe['updated_at'])->format('j F Y | H:i') }}
                                 </td>
                                 <td>
-                                    <a href="" name="edit-btn">
+                                    <a href="{{ url('edit-recipe-data/' . $recipe->recipeId) }}" name="edit-btn">
                                         <i class="fa-regular fa-pen-to-square fa-lg"
                                             style="color: #019f90; font-size: 1.5em"></i>
                                     </a>

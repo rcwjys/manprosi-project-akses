@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('subTherapyClasses', function (Blueprint $table) {
-            $table->id('subTherapyClassId', 255);
+            $table->id('subTherapyClassId');
             $table->string('subTherapyClassName', 50);
             $table->unsignedBigInteger('therapyClassId');
             $table->timestamps();

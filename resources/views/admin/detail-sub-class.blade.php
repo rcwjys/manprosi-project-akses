@@ -12,7 +12,7 @@
 
     <main>
         <div class="container mt-5">
-            
+
             <div class="card mx-auto" style="width: 60vw;">
                 <div class="card-header text-center">
                     <h6>Detail Sub Kelas</h6>
@@ -49,8 +49,8 @@
 
                     <a class="btn btn-warning mt-4 submit-button edit-button"
                         href="/medicine-sub-class/detail/edit/<?= $subMedicineClass->subTherapyClassId ?>"
-                        name="edit-btn">Edit Data
-                        Obat</a>
+                        name="edit-btn">Edit Sub Kelas
+                    </a>
 
                     <a type="button" class="btn btn-danger mt-4 delete-button ml-3"
                         href="/medicine-sub-class/delete/<?= $subMedicineClass->subTherapyClassId ?>">Hapus Data Sub
