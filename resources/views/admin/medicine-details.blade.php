@@ -10,10 +10,16 @@
 
     <main>
         <div class="container mt-5">
+            @if (session()->has('updateMedicineDataSucessfuly'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('updateMedicineDataSucessfuly') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
 
             <div class="card mx-auto" style="width: 60vw;">
                 <div class="card-header text-center">
-                    <h6>Detail Obat {{ $medicine->medicineName }}</h6>
+                    <h6 class="text-capitalize">Detail Obat {{ $medicine->medicineName }}</h6>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-striped">
@@ -21,7 +27,7 @@
                             <tr>
                                 <th scope="row" style="width: 40vw;">Nama Obat </th>
                                 <td>:</td>
-                                <td>{{ $medicine->medicineName }} </td>
+                                <td class="text-capitalize">{{ $medicine->medicineName }} </td>
                             </tr>
                             <tr>
                                 <th scope="row" style="width: 40vw;">Jumlah Stok </th>
@@ -36,7 +42,7 @@
                             <tr>
                                 <th scope="row" style="width: 40vw;">Waktu Expired </th>
                                 <td>:</td>
-                                <td>{{ $medicine->expiredDate }} </td>
+                                <td>{{ \Carbon\Carbon::parse($medicine['expiredDate'])->format('j F Y') }}</td>
                             </tr>
                             <tr>
                                 <th scope="row" style="width: 40vw;">Waktu Ketahanan Obat </th>
@@ -46,22 +52,22 @@
                             <tr>
                                 <th scope="row" style="width: 40vw;">Resep Obat</th>
                                 <td>:</td>
-                                <td></td>
+                                <td>{{ $recipe->recipe->recipe }}</td>
                             </tr>
                             <tr>
                                 <th scope="row" style="width: 40vw;">Kelas Terapi Obat</th>
                                 <td>:</td>
-                                <td></td>
+                                <td>{{ $medicineClass->medicineClass->therapyClassName }}</td>
                             </tr>
                             <tr>
                                 <th scope="row" style="width: 40vw;">Sub Kelas Terapi Obat</th>
                                 <td>:</td>
-                                <td></td>
+                                <td>{{ $medicineSubClass->medicineSubClass->subTherapyClassName }}</td>
                             </tr>
                             <tr>
                                 <th scope="row" style="width: 40vw;">Satuan Obat</th>
                                 <td>:</td>
-                                <td></td>
+                                <td>{{ $unit->unit->medicineUnit }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -69,13 +75,12 @@
                         href="{{ route('admin.medicine-data') }}">Kembali</a>
 
                     <a class="btn btn-warning mt-4 submit-button edit-button"
-                        href="{{ url('/edit-medicine-data/' . $medicine->medicineId) }}" name="edit-btn">Edit Sub Kelas
+                        href="{{ url('/edit-medicine-data/' . $medicine->medicineId) }}" name="edit-btn">Edit Data Obat
                     </a>
 
                     <a type="button" class="btn btn-danger mt-4 delete-button ml-3"
-                        href="{{ url('/delete-medicine-data/' . $medicine->medicineId) }}">Hapus Data Sub
+                        href="{{ url('/delete-medicine-data/' . $medicine->medicineId) }}">Hapus Data Obat
                         Kelas</a>
-
                 </div>
             </div>
         </div>

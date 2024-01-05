@@ -15,7 +15,7 @@ class Medicine extends Model
 
     protected $guarded = ['medicineId'];
 
-    protected $fillable = ['medicineName', 'medicineStock', 'medicineInformation', 'expiredDate', 'medicinePeriod', 'recipeId', 'medicineUnitId', 'therapyClassId', 'subTherapyClassId'];
+    protected $fillable = ['medicineName', 'medicineStock', 'medicineInformation', 'expiredDate', 'medicinePeriod', 'recipeId', 'medicineUnitId', 'therapyClassId', 'subTherapyClassId', 'created_at', 'updated_at'];
 
     public function recipe()
     {
@@ -25,5 +25,15 @@ class Medicine extends Model
     public function unit()
     {
         return $this->belongsTo(Unit::class, 'medicineUnitId', 'medicineUnitId');
+    }
+
+    public function medicineClass()
+    {
+        return $this->belongsTo(ClassMedicine::class, 'therapyClassId', 'therapyClassId');
+    }
+
+    public function medicineSubClass()
+    {
+        return $this->belongsTo(SubClassMedicine::class, 'subTherapyClassId', 'subTherapyClassId');
     }
 }

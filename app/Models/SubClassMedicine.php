@@ -16,4 +16,9 @@ class SubClassMedicine extends Model
     protected $guarded = ['subTherapyClassId'];
 
     protected $fillable = ['subTherapyClassName', 'therapyClassId'];
+
+    public function medicine()
+    {
+        return $this->hasMany(Medicine::class);
+    }
 }

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Medicine;
 use Illuminate\Http\Request;
+
 
 class IndexController extends Controller
 {
@@ -22,5 +24,11 @@ class IndexController extends Controller
     {
         $medicines = $this->medicineData;
         return view('customer.persediaan-obat', compact('medicines'));
+    }
+
+    public function showMedicineDetail(Request $req)
+    {
+        $medicine = Medicine::find($req->medicineId);
+        return view('customer.detail-persediaan', compact('medicine'));
     }
 }

@@ -11,6 +11,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\MedicineManagementController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 
 // * Middleware
@@ -19,20 +20,37 @@ use App\Http\Middleware\GuestMiddleware;
 
 
 // * Customer Page
-Route::get('/', [IndexController::class, 'index'])->name('customer.index')->middleware([GuestMiddleware::class]);
 
-Route::get('/persediaan-obat', [indexController::class, 'accessMedicinePage'])->name('customer.medicinePage')->middleware([GuestMiddleware::class]);
+route::middleware([GuestMiddleware::class])->group(function () {
 
-Route::get('/login', [LoginController::class, 'loginPage'])->name('admin.loginPage')->middleware([GuestMiddleware::class]);
+    route::get('/', [IndexController::class, 'index'])->name('customer.index');
 
-route::post('/login', [LoginController::class, 'loginProcess'])->middleware([GuestMiddleware::class]);
+    // * Persediaan Obat 
 
-route::post('/messages/create', [MessageController::class, 'store'])->name('message.create');
+    route::get('/persediaan-obat', [indexController::class, 'accessMedicinePage'])->name('customer.medicinePage');
+
+    route::get('/detail-persediaan-obat/{medicineId}', [IndexController::class, 'showMedicineDetail']);
+
+    // * Authorization
+
+    route::get('/login', [LoginController::class, 'loginPage'])->name('admin.loginPage');
+
+    route::post('/login', [LoginController::class, 'loginProcess']);
+
+    // * Send Message Feature
+
+    route::post('/messages/create', [MessageController::class, 'store'])->name('message.create');
+
+    // ! Should Be Move When Finish
+    route::get('/register', [RegisterController::class, 'registerPage'])->name('admin.registerPage');
+
+    route::post('/register', [RegisterController::class, 'registerProcess']);
+});
 
 
-route::get('/register', [RegisterController::class, 'registerPage'])->name('admin.registerPage');
 
-route::post('/register', [RegisterController::class, 'registerProcess']);
+
+
 
 // * Routing For Admin
 
@@ -119,9 +137,6 @@ route::middleware([AuthMiddleware::class])->group(function () {
     route::get('/delete-medicine-data/{medicineId}', [MedicineManagementController::class, 'destroyMedicineData']);
 
 
-
-
-
     // * Messages Feature
 
     route::get('/messages', [MessageController::class, 'index']);
@@ -156,4 +171,9 @@ route::middleware([AuthMiddleware::class])->group(function () {
     route::put('/employee/edit-employee/{id}', [EmployeeController::class, 'SubmitEditemployee'])->name('employee.update');
 
     route::get('/employee/edit-employee/delete/{id}', [EmployeeController::class, 'deleteEmployee'])->name('employee.delete');
+
+
+    // * Reports Feature
+
+    route::get('/general-reports', [ReportController::class, 'index'])->name('admin.reports');
 });

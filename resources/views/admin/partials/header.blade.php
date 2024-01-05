@@ -52,7 +52,7 @@
                                      Obat</a>
                              </li>
                              <li class="nav-item">
-                                 <a class="nav-link @yield('Laporan')" href="">Laporan</a>
+                                 <a class="nav-link @yield('laporan')" href="{{ url('/general-reports') }}">Laporan</a>
                              </li>
                              <li class="nav-item">
                                  <a class="nav-link @yield('kelola pegawai')" href="{{ url('/employee') }}">Managemen

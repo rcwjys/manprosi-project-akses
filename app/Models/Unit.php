@@ -13,4 +13,9 @@ class Unit extends Model
     protected $table = 'medicineunits';
     protected $guarded = ['medicineunits'];
     protected $fillable = ['medicineUnit', 'created_at', 'updated_at'];
+
+    public function medicine()
+    {
+        return $this->hasMany(Medicine::class);
+    }
 }

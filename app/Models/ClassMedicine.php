@@ -16,4 +16,9 @@ class ClassMedicine extends Model
     protected $guarded = ['therapyClassId'];
 
     protected $fillable = ['therapyClassName', 'created_at', 'updated_at'];
+
+    public function medicine()
+    {
+        return $this->hasMany(Medicine::class);
+    }
 }
