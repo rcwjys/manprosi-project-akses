@@ -12,9 +12,16 @@
     <main>
         <div class="container">
             <div class="container mt-3">
-                @if (session()->has('deleteSubClassMessage'))
+                @if (session()->has('medicineSuccessfulyDeleted'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        {{ session('deleteSubClassMessage') }}
+                        {{ session('medicineSuccessfulyDeleted') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+
+                @if (session()->has('medicineDataSuccessfulyCreated'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('medicineDataSuccessfulyCreated') }}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
@@ -29,7 +36,7 @@
                         <div class="col-lg-3">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title">
+                                    <h5 class="card-title text-capitalize">
                                         {{ $medicine->medicineName }}
                                     </h5>
                                     <a href="{{ url('/medicine-data/details/' . $medicine->medicineId) }}" class="card-link"

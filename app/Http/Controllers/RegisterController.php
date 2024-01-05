@@ -17,7 +17,7 @@ class RegisterController extends Controller
         $registerValidate = $request->validate([
             'employeeName' => ['required', 'min:3'],
             'employeeEmail' => ['required', 'unique:employees', 'email:dns'],
-            'employeePhone' => ['required', 'min:12', 'unique:employees'],
+            'employeePhone' => ['required', 'min:11', 'unique:employees'],
             'employeeAddress' => ['required'],
             'isAdmin',
             'employeePassword' => ['required', 'min:5'],
