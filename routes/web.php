@@ -11,7 +11,6 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\MedicineManagementController;
 use App\Http\Controllers\UnitController;
-use App\Http\Controllers\MedicineManagementController;
 use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,10 +46,6 @@ route::middleware([GuestMiddleware::class])->group(function () {
 
     route::post('/register', [RegisterController::class, 'registerProcess']);
 });
-
-
-
-
 
 
 // * Routing For Admin

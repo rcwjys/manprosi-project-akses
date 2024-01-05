@@ -3,14 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-<<<<<<< HEAD
 use App\Models\Recipe;
 use App\Models\SubClassMedicine;
 use App\Models\Unit;
 use App\Models\ClassMedicine;
-=======
-
->>>>>>> d5febd9015cd0ca6bd1b6b71e204e3d423038165
 use App\Models\Medicine;
 
 class MedicineManagementController extends Controller
@@ -30,7 +26,6 @@ class MedicineManagementController extends Controller
 
     public function getMedicineForm()
     {
-<<<<<<< HEAD
         $medicineRecipe = Recipe::all();
         $medicineClass = ClassMedicine::all();
         $medicineSubClass = SubClassMedicine::all();
@@ -58,19 +53,10 @@ class MedicineManagementController extends Controller
 
         session()->flash('medicineDataSuccessfulyCreated', 'Data obat telah berhasil dibuat');
         return redirect(route('admin.medicine-data'));
-=======
-        // todo
-    }
-
-    public function storeMedicineData()
-    {
-        // todo
->>>>>>> d5febd9015cd0ca6bd1b6b71e204e3d423038165
     }
 
     public function DetailMedicineData(Request $req)
     {
-<<<<<<< HEAD
         $medicine = Medicine::find($req->medicineId);
         $medicineClass = Medicine::with('medicineClass')->find($req->medicineId);
         $medicineSubClass = Medicine::with('medicineSubClass')->find($req->medicineId);
@@ -120,24 +106,5 @@ class MedicineManagementController extends Controller
         $medicine->delete();
         session()->flash('medicineSuccessfulyDeleted', 'Data obat berhasil untuk dihapus');
         return redirect(route('admin.medicine-data'));
-=======
-        $medicine = Medicine::find($req->medicineId)->first();
-        return view('admin.medicine-details', compact('medicine'));
-    }
-
-    public function editMedicineData()
-    {
-        // todo
-    }
-
-    public function updateMedicineData()
-    {
-        // todo
-    }
-
-    public function destroyMedicineData()
-    {
-        // todo
->>>>>>> d5febd9015cd0ca6bd1b6b71e204e3d423038165
     }
 }
