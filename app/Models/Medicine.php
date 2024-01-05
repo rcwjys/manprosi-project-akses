@@ -26,6 +26,7 @@ class Medicine extends Model
     {
         return $this->belongsTo(Unit::class, 'medicineUnitId', 'medicineUnitId');
     }
+<<<<<<< HEAD
 
     public function medicineClass()
     {
@@ -36,4 +37,6 @@ class Medicine extends Model
     {
         return $this->belongsTo(SubClassMedicine::class, 'subTherapyClassId', 'subTherapyClassId');
     }
+=======
+>>>>>>> d5febd9015cd0ca6bd1b6b71e204e3d423038165
 }
