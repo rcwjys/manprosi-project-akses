@@ -9,6 +9,7 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\MedicineManagementController;
 use App\Http\Controllers\UnitController;
 use Illuminate\Support\Facades\Route;
 
@@ -89,6 +90,24 @@ route::middleware([AuthMiddleware::class])->group(function () {
     route::get('/delete-recipe-data/{recipeId}', [RecipeController::class, 'destroy']);
 
 
+
+    // * Medicine Management Feature
+    route::get('/medicine-data', [MedicineManagementController::class, 'index'])->name('admin.medicine-data');
+
+    route::get('/create-medicine-data', [MedicineManagementController::class, 'getMedicineForm']);
+
+    route::post('/store-medicine-data', [MedicineManagementController::class, 'storeMedicineData']);
+
+    route::get('/medicine-data/details/{medicineId}', [MedicineManagementController::class, 'DetailMedicineData']);
+
+    route::get('/edit-medicine-data/{medicineId}', [MedicineManagementController::class, 'editMedicineData']);
+
+    route::put('/update-medicine-data/{medicineId}', [MedicineManagementController::class, 'updateMedicineData']);
+
+    route::get('/delete-medicine-data/{medicineId}', [MedicineManagementController::class, 'destroyMedicineData']);
+
+
+
     // * Units Feature
     route::get('/medicine-units-data', [UnitController::class, 'index'])->name('admin.medicine-unit');
 
@@ -101,6 +120,7 @@ route::middleware([AuthMiddleware::class])->group(function () {
     route::put('/update-medicine-unit-data/{medicineUnitId}', [UnitController::class, 'updateUnitData']);
 
     route::get('/medicine-units-data/delete-data/{medicineUnitId}', [UnitController::class, 'destroy']);
+
 
 
     // * Messages Feature
@@ -117,6 +137,7 @@ route::middleware([AuthMiddleware::class])->group(function () {
 
 
     // * Authentication Feature
+
 
     // route::get('/register', [RegisterController::class, 'registerPage'])->name('admin.registerPage');
 

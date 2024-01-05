@@ -2,9 +2,9 @@
 @extends('admin.template.main-template')
 
 <!-- Set Title Halaman -->
-@section('title', 'Pesan | UPTD Puskesmas Babakan Tarogong')
+@section('title', 'Persediaan Obat | UPTD Puskesmas Babakan Tarogong')
 
-@section('pesan', 'active')
+@section('persediaan', 'active')
 
 <!-- Import Layouting -->
 @section('content')
