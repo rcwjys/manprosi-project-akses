@@ -73,6 +73,10 @@
                                  <a class="nav-link @yield('recipe')" href="{{ route('admin.recipe') }}">Resep Obat</a>
                              </li>
                              <li class="nav-item">
+                                 <a class="nav-link @yield('medicineUnit')" href="{{ route('admin.medicine-unit') }}">Unit
+                                     Obat</a>
+                             </li>
+                             <li class="nav-item">
                                  <a class="nav-link" href="{{ route('admin.logout') }}">Logout</a>
                              </li>
                          </ul>
