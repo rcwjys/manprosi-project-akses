@@ -9,6 +9,7 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\UnitController;
 use Illuminate\Support\Facades\Route;
 
 // * Middleware
@@ -27,11 +28,17 @@ route::post('/login', [LoginController::class, 'loginProcess'])->middleware([Gue
 
 route::post('/messages/create', [MessageController::class, 'store'])->name('message.create');
 
+
+route::get('/register', [RegisterController::class, 'registerPage'])->name('admin.registerPage');
+
+route::post('/register', [RegisterController::class, 'registerProcess']);
+
 // * Routing For Admin
 
 route::middleware([AuthMiddleware::class])->group(function () {
 
     route::get('/dashboard', [DashboardController::class, 'getDashboard'])->name('admin.dashboard');
+
 
     // * Medicine Class Feature
 
@@ -82,6 +89,20 @@ route::middleware([AuthMiddleware::class])->group(function () {
     route::get('/delete-recipe-data/{recipeId}', [RecipeController::class, 'destroy']);
 
 
+    // * Units Feature
+    route::get('/medicine-units-data', [UnitController::class, 'index'])->name('admin.medicine-unit');
+
+    route::get('/create-medicine-unit-data', [UnitController::class, 'getUnitForm'])->name('admin.unit-form');
+
+    route::post('/store-medicine-unit-data', [UnitController::class, 'storeUnitData']);
+
+    route::get('/edit-medicine-unit-data/{medicineUnitId}', [UnitController::class, 'editUnitData']);
+
+    route::put('/update-medicine-unit-data/{medicineUnitId}', [UnitController::class, 'updateUnitData']);
+
+    route::get('/medicine-units-data/delete-data/{medicineUnitId}', [UnitController::class, 'destroy']);
+
+
     // * Messages Feature
 
     route::get('/messages', [MessageController::class, 'index']);
@@ -96,10 +117,10 @@ route::middleware([AuthMiddleware::class])->group(function () {
 
 
     // * Authentication Feature
-    
-    Route::get('/register', [RegisterController::class, 'registerPage'])->name('admin.registerPage');
 
-    Route::post('/register', [RegisterController::class, 'registerProcess']);
+    // route::get('/register', [RegisterController::class, 'registerPage'])->name('admin.registerPage');
+
+    // route::post('/register', [RegisterController::class, 'registerProcess']);
 
     route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout');
 
