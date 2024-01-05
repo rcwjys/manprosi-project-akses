@@ -21,4 +21,9 @@ class Medicine extends Model
     {
         return $this->belongsTo(Recipe::class, 'recipeId', 'recipeId');
     }
+
+    public function unit()
+    {
+        return $this->belongsTo(Unit::class, 'medicineUnitId', 'medicineUnitId');
+    }
 }

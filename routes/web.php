@@ -9,6 +9,7 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\MedicineManagementController;
 use Illuminate\Support\Facades\Route;
 
 // * Middleware
@@ -82,6 +83,24 @@ route::middleware([AuthMiddleware::class])->group(function () {
     route::get('/delete-recipe-data/{recipeId}', [RecipeController::class, 'destroy']);
 
 
+    // * Medicine Management Feature
+    route::get('/medicine-data', [MedicineManagementController::class, 'index'])->name('admin.medicine-data');
+
+    route::get('/create-medicine-data', [MedicineManagementController::class, 'getMedicineForm']);
+
+    route::post('/store-medicine-data', [MedicineManagementController::class, 'storeMedicineData']);
+
+    route::get('/medicine-data/details/{medicineId}', [MedicineManagementController::class, 'DetailMedicineData']);
+
+    route::get('/edit-medicine-data/{medicineId}', [MedicineManagementController::class, 'editMedicineData']);
+
+    route::put('/update-medicine-data/{medicineId}', [MedicineManagementController::class, 'updateMedicineData']);
+
+    route::get('/delete-medicine-data/{medicineId}', [MedicineManagementController::class, 'destroyMedicineData']);
+
+
+
+
     // * Messages Feature
 
     route::get('/messages', [MessageController::class, 'index']);
@@ -96,7 +115,7 @@ route::middleware([AuthMiddleware::class])->group(function () {
 
 
     // * Authentication Feature
-    
+
     Route::get('/register', [RegisterController::class, 'registerPage'])->name('admin.registerPage');
 
     Route::post('/register', [RegisterController::class, 'registerProcess']);
