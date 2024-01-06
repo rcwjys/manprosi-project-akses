@@ -17,7 +17,7 @@ class ClassMedicine extends Model
 
     protected $fillable = ['therapyClassName', 'created_at', 'updated_at'];
 
-    public function medicine()
+    public function subMedicine()
     {
         return $this->hasMany(Medicine::class);
     }

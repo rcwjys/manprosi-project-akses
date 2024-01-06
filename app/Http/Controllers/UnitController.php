@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Unit;
+use App\Models\Medicine;
+
+use function PHPUnit\Framework\isEmpty;
 
 class UnitController extends Controller
 {
@@ -48,9 +51,18 @@ class UnitController extends Controller
 
     public function destroy(Request $req)
     {
-        $unitData = Unit::find($req->medicineUnitId);
-        $unitData->delete();
-        session()->flash('deleteUnitDataSuccessfuly', 'Data satuan unit data berhasil dihapus');
-        return redirect(route('admin.medicine-unit'));
+
+        if (!count(Medicine::withCount('medicineClass')->get()) > 0) {
+
+            $unitData = Unit::find($req->medicineUnitId);
+            $unitData->delete();
+            session()->flash('deleteUnitDataSuccessfuly', 'Data satuan unit data berhasil dihapus');
+
+            return redirect(route('admin.medicine-unit'));
+        } else {
+            session()->flash('deleteUnitDataFailed', 'Proses Penghapusan Data Gagal, pastikan tidak ada lagi obat obat yang terkait.');
+
+            return redirect(route('admin.medicine-unit'));
+        }
     }
 }

@@ -15,6 +15,7 @@ use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormulariumController;
 use App\Http\Middleware\AdminMiddleware;
+
 // * Middleware
 use App\Http\Middleware\AuthMiddleware;
 use App\Http\Middleware\GuestMiddleware;

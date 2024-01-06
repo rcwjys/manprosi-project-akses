@@ -24,6 +24,18 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
+                @if (session()->has('deleteUnitDataSuccessfuly'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('deleteUnitDataSuccessfuly') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+                @if (session()->has('deleteUnitDataFailed'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ session('deleteUnitDataFailed') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
 
                 <!-- Add Medicine Button -->
                 <a href="{{ url('/create-medicine-unit-data') }}" class="btn btn-primary mt-5 medicine-add-btn">+ Tambah

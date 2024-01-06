@@ -55,7 +55,8 @@ class RecipeController extends Controller
 
     public function destroy(Request $req)
     {
-        if (!is_null(Medicine::withCount('recipe')->get())) {
+
+        if (!count(Medicine::withCount('recipe')->get()) > 0) {
             $recipeData = Recipe::find($req->recipeId);
             $recipeData->delete();
             session()->flash('recipeSuccessfulyDeleted', 'Data resep berhasil di hapus');
