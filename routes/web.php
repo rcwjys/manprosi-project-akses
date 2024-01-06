@@ -14,7 +14,7 @@ use App\Http\Controllers\UnitController;
 use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormulariumController;
-
+use App\Http\Middleware\AdminMiddleware;
 // * Middleware
 use App\Http\Middleware\AuthMiddleware;
 use App\Http\Middleware\GuestMiddleware;
@@ -155,6 +155,18 @@ route::middleware([AuthMiddleware::class])->group(function () {
     route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout');
 
 
+    // * Reports Feature
+
+    route::get('/general-reports', [ReportController::class, 'index'])->name('admin.reports');
+
+    // * Formularium Feature
+
+    route::get('/formularium', [FormulariumController::class, 'index'])->name('admin.formularium');
+});
+
+
+route::middleware([AuthMiddleware::class, AdminMiddleware::class])->group(function () {
+
     // * Manage Employee Feature
     route::get('/employee', [EmployeeController::class, 'employee'])->name('admin.employee');
 
@@ -167,12 +179,4 @@ route::middleware([AuthMiddleware::class])->group(function () {
     route::put('/employee/edit-employee/{id}', [EmployeeController::class, 'SubmitEditemployee'])->name('employee.update');
 
     route::get('/employee/edit-employee/delete/{id}', [EmployeeController::class, 'deleteEmployee'])->name('employee.delete');
-
-    // * Reports Feature
-
-    route::get('/general-reports', [ReportController::class, 'index'])->name('admin.reports');
-
-    // * Formularium Feature
-
-    route::get('/formularium', [FormulariumController::class, 'index'])->name('admin.formularium');
 });

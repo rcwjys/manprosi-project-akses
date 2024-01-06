@@ -2,7 +2,7 @@
 @extends('admin.template.main-template')
 
 <!-- Set Title Halaman -->
-@section('title', 'Halaman Detail Data Karyawan | UPTD Puskesmas Babakan Tarogong')
+@section('title', 'UPTD Puskesmas Babakan Tarogong')
 
 <!-- Set class active -->
 @section('kelola pegawai', 'active')
@@ -46,12 +46,22 @@
                                             value="{{ $employeeEdit->employeePhone }}">
                                     </td>
                                 </tr>
+
                                 <tr>
                                     <th scope="row">Address</th>
                                     <td>:</td>
                                     <td>
                                         <input type="text" name="employeeAddress" class="form-control"
                                             id="employeeAddress" value="{{ $employeeEdit->employeeAddress }}">
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">Role</th>
+                                    <td>:</td>
+                                    <td>
+                                        <input type="number" name="isAdmin" class="form-control" id="employeePhone"
+                                            value="{{ $employeeEdit->isAdmin }}">
                                     </td>
                                 </tr>
                             </tbody>

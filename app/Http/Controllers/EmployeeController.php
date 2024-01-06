@@ -25,7 +25,7 @@ class EmployeeController extends Controller
         $request->validate([
             'employeeName' => 'required',
             'employeeEmail' => 'required | unique:employees',
-            'employeePhone' => 'required | min:12 | unique:employees',
+            'employeePhone' => 'required | min:11 | unique:employees',
             'employeeAddress' => 'required',
             'isAdmin',
             'employeePassword' => 'required|min:5',
@@ -65,6 +65,7 @@ class EmployeeController extends Controller
             'employeeEmail' => $request->employeeEmail,
             'employeePhone' => $request->employeePhone,
             'employeeAddress' => $request->employeeAddress,
+            'isAdmin' => $request->isAdmin
         ]);
 
         session()->flash('MessageEditEmployee', 'Proses Perubahan Data Berhasil');

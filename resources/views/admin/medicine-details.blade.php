@@ -1,7 +1,7 @@
 @extends('admin.template.main-template')
 
 <!-- Set Title Halaman -->
-@section('title', 'Halaman Detail Obat | UPTD Puskesmas Babakan Tarogong')
+@section('title', 'UPTD Puskesmas Babakan Tarogong')
 
 @section('persediaan', 'active')
 

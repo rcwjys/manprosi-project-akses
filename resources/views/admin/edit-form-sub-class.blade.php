@@ -2,7 +2,7 @@
 @extends('admin.template.main-template')
 
 <!-- Set Title Halaman -->
-@section('title', 'Edit Sub Kelas Obat | UPTD Puskesmas Babakan Tarogong')
+@section('title', 'UPTD Puskesmas Babakan Tarogong')
 
 @section('sub-class', 'active')
 

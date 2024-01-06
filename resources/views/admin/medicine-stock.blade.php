@@ -2,7 +2,7 @@
 
 @extends('layouts.app')
 
-@section('title', 'Persediaan Obat | UPTD Puskesmas Babakan Tarogong')
+@section('title', 'UPTD Puskesmas Babakan Tarogong')
 
 @section('content')
     @if (session('isAdmin'))
@@ -14,7 +14,8 @@
     <main>
         <div class="container mt-5">
             <!-- Add Medicine Button -->
-            <a href="{{ route('medicines.create') }}" class="btn btn-primary mt-5 medicine-add-btn">+ Tambah data persediaan obat</a>
+            <a href="{{ route('medicines.create') }}" class="btn btn-primary mt-5 medicine-add-btn">+ Tambah data persediaan
+                obat</a>
 
             @if ($medicines)
                 @php $isCanViewDetail = true; @endphp
@@ -26,7 +27,8 @@
                                     <h5 class="card-title">
                                         {{ htmlspecialchars($medicine['medicineName']) }}
                                     </h5>
-                                    <a href="{{ route('medicines.show', $medicine['medicineId']) }}" class="card-link" style="color: #019F90;">Details</a>
+                                    <a href="{{ route('medicines.show', $medicine['medicineId']) }}" class="card-link"
+                                        style="color: #019F90;">Details</a>
                                 </div>
                             </div>
                         </div>
@@ -48,7 +50,8 @@
     <!-- bootstrap js -->
     <script src="{{ asset('js/bootstrap.js') }}"></script>
     <!-- nice select -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"
+        integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
     <!-- owl slider -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <!-- datepicker -->

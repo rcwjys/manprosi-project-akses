@@ -17,7 +17,7 @@ class LoginController extends Controller
     {
         $employeeEmailInput = $request->input('employeeEmail');
 
-        $employee = DB::table('employees')->select('employeeName', 'employeeEmail', 'employeePassword')->where('employeeEmail', $employeeEmailInput)->get();
+        $employee = DB::table('employees')->select('employeeName', 'employeeEmail', 'employeePassword', 'isAdmin')->where('employeeEmail', $employeeEmailInput)->get();
 
         $employeePaswordInput = $request->input('employeePassword');
 
@@ -33,12 +33,16 @@ class LoginController extends Controller
         $request->session()->put('isAuthorize', true);
         $request->session()->put("employee", $employee[0]->employeeName);
 
+        if ($employee[0]->isAdmin == 1) {
+            $request->session()->put('isAdmin', true);
+        }
+
         return redirect(route('admin.dashboard'))->with('loginSuccess', 'Proses Login berhasil');
     }
 
     public function logout(Request $request)
     {
-        $request->session()->forget('employee');
+        $request->session()->forget(['employee', 'isAdmin']);
         return redirect(route('customer.index'));
     }
 }

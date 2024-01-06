@@ -73,16 +73,18 @@
                                  style="background-color:#019F90; border: none;">
                                  Lainnya
                              </a>
-
                              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                  <a class="dropdown-item @yield('laporan')" href="{{ url('/general-reports') }}">Laporan
                                  </a>
-                                 <a class="dropdown-item @yield('kelola pegawai')" href="{{ url('/employee') }}">Managemen
-                                     Pegawai
-                                 </a>
+                                 @if (session('isAdmin'))
+                                     <a class="dropdown-item @yield('kelola pegawai')" href="{{ url('/employee') }}">Managemen
+                                         Pegawai
+                                     </a>
+                                 @endif
+
                                  <a class="dropdown-item @yield('pesan')" href="{{ url('/messages') }}">Managemen
-                                     Pesan
-                                 </a>
+                                    Pesan
+                                </a>
 
                                  <a class="dropdown-item active font-weight-bold"
                                      href="{{ route('admin.logout') }}">Logout

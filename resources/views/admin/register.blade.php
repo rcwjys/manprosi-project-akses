@@ -2,7 +2,7 @@
 @extends('template.no-header')
 
 <!-- Set Title Halaman -->
-@section('title', 'Halaman Registrasi | UPTD Puskesmas Babakan Tarogong')
+@section('title', 'UPTD Puskesmas Babakan Tarogong')
 
 <!-- Import Layouting -->
 @section('content')
