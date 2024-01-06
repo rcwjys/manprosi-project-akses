@@ -35,7 +35,7 @@
                  <button class="navbar-toggler" type="button" data-toggle="collapse"
                      data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                      aria-label="Toggle navigation">
-                     <span class=""> </span>
+                     <span class=""></span>
                  </button>
 
                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -45,21 +45,11 @@
                                  <a class="nav-link @yield('index')" href="/">Beranda</a>
                              </li>
                              <li class="nav-item">
-                                 <a class="nav-link @yield('formularium')" href="">Formularium</a>
+                                 <a class="nav-link @yield('formularium')" href="{{ url('/formularium') }}">Formularium</a>
                              </li>
                              <li class="nav-item">
                                  <a class="nav-link @yield('persediaan')" href="{{ url('/medicine-data') }}">Persediaan
                                      Obat</a>
-                             </li>
-                             <li class="nav-item">
-                                 <a class="nav-link @yield('laporan')" href="{{ url('/general-reports') }}">Laporan</a>
-                             </li>
-                             <li class="nav-item">
-                                 <a class="nav-link @yield('kelola pegawai')" href="{{ url('/employee') }}">Managemen
-                                     Pegawai</a>
-                             </li>
-                             <li class="nav-item">
-                                 <a class="nav-link @yield('pesan')" href="{{ url('/messages') }}">Managemen Pesan</a>
                              </li>
                              <li class="nav-item">
                                  <a class="nav-link @yield('class')" href="{{ route('admin.medicine-class') }}">Kelas
@@ -76,10 +66,30 @@
                                  <a class="nav-link @yield('medicineUnit')" href="{{ route('admin.medicine-unit') }}">Unit
                                      Obat</a>
                              </li>
-                             <li class="nav-item">
-                                 <a class="nav-link" href="{{ route('admin.logout') }}">Logout</a>
-                             </li>
                          </ul>
+                         <div class="dropdown show">
+                             <a class="btn btn-secondary dropdown-toggle shadow-none" href="#" role="button"
+                                 id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                 style="background-color:#019F90; border: none;">
+                                 Lainnya
+                             </a>
+
+                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                 <a class="dropdown-item @yield('laporan')" href="{{ url('/general-reports') }}">Laporan
+                                 </a>
+                                 <a class="dropdown-item @yield('kelola pegawai')" href="{{ url('/employee') }}">Managemen
+                                     Pegawai
+                                 </a>
+                                 <a class="dropdown-item @yield('pesan')" href="{{ url('/messages') }}">Managemen
+                                     Pesan
+                                 </a>
+
+                                 <a class="dropdown-item active font-weight-bold"
+                                     href="{{ route('admin.logout') }}">Logout
+                                 </a>
+
+                             </div>
+                         </div>
                      </div>
                  </div>
              </nav>

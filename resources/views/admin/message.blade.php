@@ -4,12 +4,10 @@
 <!-- Set Title Halaman -->
 @section('title', 'Persediaan Obat | UPTD Puskesmas Babakan Tarogong')
 
-@section('persediaan', 'active')
+@section('pesan', 'active')
 
 <!-- Import Layouting -->
 @section('content')
-
-
 
     @if ($messages->count() >= 1)
 
@@ -51,7 +49,7 @@
                     </tbody>
                 </table>
             @else
-                <div class="card mx-auto" style="width: 60vw;">
+                <div class="card mx-auto mt-5" style="width: 60vw;">
                     @if (session()->has('deleteMessageSuccessFully'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                             {{ session('deleteMessageSuccessFully') }}

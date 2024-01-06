@@ -13,6 +13,7 @@ use App\Http\Controllers\MedicineManagementController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FormulariumController;
 
 // * Middleware
 use App\Http\Middleware\AuthMiddleware;
@@ -192,4 +193,8 @@ route::middleware([AuthMiddleware::class])->group(function () {
     // * Reports Feature
 
     route::get('/general-reports', [ReportController::class, 'index'])->name('admin.reports');
+
+    // * Formularium Feature
+
+    route::get('/formularium', [FormulariumController::class, 'index'])->name('admin.formularium');
 });
