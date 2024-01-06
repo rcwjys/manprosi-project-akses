@@ -1260,3 +1260,15 @@ body {
     transform: scale(1.05);
     font-weight: 500;
   }
+
+  .dropdown-item.active, .dropdown-item:active {
+    background-color: white; 
+    color: #019F90; 
+  }
+
+  a.dropdown-item:hover  {
+    background-color: white !important;
+    color: #019f90;
+  }
+
+  
