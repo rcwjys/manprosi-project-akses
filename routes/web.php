@@ -41,11 +41,6 @@ route::middleware([GuestMiddleware::class])->group(function () {
     // * Send Message Feature
 
     route::post('/messages/create', [MessageController::class, 'store'])->name('message.create');
-
-    // ! Should Be Move When Finish
-    route::get('/register', [RegisterController::class, 'registerPage'])->name('admin.registerPage');
-
-    route::post('/register', [RegisterController::class, 'registerProcess']);
 });
 
 
@@ -136,22 +131,6 @@ route::middleware([AuthMiddleware::class])->group(function () {
 
     route::get('/medicine-units-data/delete-data/{medicineUnitId}', [UnitController::class, 'destroy']);
 
-    // * Medicine Management Feature
-    route::get('/medicine-data', [MedicineManagementController::class, 'index'])->name('admin.medicine-data');
-
-    route::get('/create-medicine-data', [MedicineManagementController::class, 'getMedicineForm']);
-
-    route::post('/store-medicine-data', [MedicineManagementController::class, 'storeMedicineData']);
-
-    route::get('/medicine-data/details/{medicineId}', [MedicineManagementController::class, 'DetailMedicineData']);
-
-    route::get('/edit-medicine-data/{medicineId}', [MedicineManagementController::class, 'editMedicineData']);
-
-    route::put('/update-medicine-data/{medicineId}', [MedicineManagementController::class, 'updateMedicineData']);
-
-    route::get('/delete-medicine-data/{medicineId}', [MedicineManagementController::class, 'destroyMedicineData']);
-
-
 
     // * Messages Feature
 
@@ -169,9 +148,9 @@ route::middleware([AuthMiddleware::class])->group(function () {
     // * Authentication Feature
 
 
-    // route::get('/register', [RegisterController::class, 'registerPage'])->name('admin.registerPage');
+    route::get('/register', [RegisterController::class, 'registerPage'])->name('admin.registerPage');
 
-    // route::post('/register', [RegisterController::class, 'registerProcess']);
+    route::post('/register', [RegisterController::class, 'registerProcess']);
 
     route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout');
 
@@ -188,7 +167,6 @@ route::middleware([AuthMiddleware::class])->group(function () {
     route::put('/employee/edit-employee/{id}', [EmployeeController::class, 'SubmitEditemployee'])->name('employee.update');
 
     route::get('/employee/edit-employee/delete/{id}', [EmployeeController::class, 'deleteEmployee'])->name('employee.delete');
-
 
     // * Reports Feature
 
