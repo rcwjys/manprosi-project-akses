@@ -83,8 +83,12 @@
                                  @endif
 
                                  <a class="dropdown-item @yield('pesan')" href="{{ url('/messages') }}">Managemen
-                                    Pesan
-                                </a>
+                                     Pesan
+                                 </a>
+
+                                 <a class="dropdown-item @yield('posts')" href="{{ url('/education') }}">Managemen
+                                     Unggahan
+                                 </a>
 
                                  <a class="dropdown-item active font-weight-bold"
                                      href="{{ route('admin.logout') }}">Logout

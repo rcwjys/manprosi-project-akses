@@ -12,4 +12,9 @@ class Employee extends Model
     protected $guarded = ['employeeId'];
 
     protected $fillable = ['employeeName', 'employeeEmail', 'employeePhone', 'employeeAddress', 'employeePassword', 'isAdmin'];
+
+    public function post()
+    {
+        return $this->hasMany(Post::class);
+    }
 }

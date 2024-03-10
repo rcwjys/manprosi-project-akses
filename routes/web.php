@@ -15,6 +15,7 @@ use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormulariumController;
 use App\Http\Middleware\AdminMiddleware;
+use App\Http\Controllers\EducationController;
 
 // * Middleware
 use App\Http\Middleware\AuthMiddleware;
@@ -45,7 +46,7 @@ route::middleware([GuestMiddleware::class])->group(function () {
 });
 
 
-// * Routing For Admin
+// * Routing For Employee
 
 route::middleware([AuthMiddleware::class])->group(function () {
 
@@ -148,11 +149,6 @@ route::middleware([AuthMiddleware::class])->group(function () {
 
     // * Authentication Feature
 
-
-    route::get('/register', [RegisterController::class, 'registerPage'])->name('admin.registerPage');
-
-    route::post('/register', [RegisterController::class, 'registerProcess']);
-
     route::get('/logout', [LoginController::class, 'logout'])->name('admin.logout');
 
 
@@ -166,7 +162,11 @@ route::middleware([AuthMiddleware::class])->group(function () {
 });
 
 
+// * Routing for Admin
+
 route::middleware([AuthMiddleware::class, AdminMiddleware::class])->group(function () {
+
+
 
     // * Manage Employee Feature
     route::get('/employee', [EmployeeController::class, 'employee'])->name('admin.employee');
@@ -180,4 +180,24 @@ route::middleware([AuthMiddleware::class, AdminMiddleware::class])->group(functi
     route::put('/employee/edit-employee/{id}', [EmployeeController::class, 'SubmitEditemployee'])->name('employee.update');
 
     route::get('/employee/edit-employee/delete/{id}', [EmployeeController::class, 'deleteEmployee'])->name('employee.delete');
+
+
+    // * Manage Educational Content
+
+    route::get('/education', [EducationController::class, 'educationIndex'])->name('educational');
+
+    route::get('/education/detail-post/{post_id}', [EducationController::class, 'showEducation'])->name('post-detail');
+
+    route::get('/education/create', [EducationController::class, 'addEducation']);
+    route::post('/education/create', [EducationController::class, 'storeEducation']);
+
+    route::get('/education/edit/{post_id}', [EducationController::class, 'editEducation']);
+    route::patch('/education/update/{post_id}', [EducationController::class, 'updateEducation']);
+
+    route::get('/education/delete/{post_id}', [EducationController::class, 'destroyEducation'])->name('admin.delete-post');
 });
+
+
+route::get('/register', [RegisterController::class, 'registerPage'])->name('admin.registerPage');
+
+route::post('/register', [RegisterController::class, 'registerProcess']);

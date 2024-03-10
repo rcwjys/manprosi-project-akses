@@ -17,7 +17,7 @@ class LoginController extends Controller
     {
         $employeeEmailInput = $request->input('employeeEmail');
 
-        $employee = DB::table('employees')->select('employeeName', 'employeeEmail', 'employeePassword', 'isAdmin')->where('employeeEmail', $employeeEmailInput)->get();
+        $employee = DB::table('employees')->select('employeeId', 'employeeName', 'employeeEmail', 'employeePassword', 'isAdmin')->where('employeeEmail', $employeeEmailInput)->get();
 
         $employeePaswordInput = $request->input('employeePassword');
 
@@ -32,6 +32,8 @@ class LoginController extends Controller
 
         $request->session()->put('isAuthorize', true);
         $request->session()->put("employee", $employee[0]->employeeName);
+        $request->session()->put('employeeId', $employee[0]->employeeId);
+
 
         if ($employee[0]->isAdmin == 1) {
             $request->session()->put('isAdmin', true);
