@@ -15,7 +15,7 @@ class Post extends Model
 
     protected $guarded = ['post_id'];
 
-    protected $fillable = ['employeeId', 'post_title', 'post_slug', 'post_body'];
+    protected $fillable = ['employeeId', 'post_description', 'post_title', 'post_slug', 'post_body'];
 
     public function employee()
     {

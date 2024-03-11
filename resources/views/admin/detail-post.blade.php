@@ -26,12 +26,17 @@
                     <table class="table table-striped">
                         <tbody>
                             <tr>
-                                <th scope="row" style="width: 40vw;">Judul</th>
+                                <th scope="row" style="width: 40vw;">Judul Postingan</th>
                                 <td>:</td>
                                 <td>{{ $post->post_title }}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Content</th>
+                                <th scope="row" style="width: 40vw;">Deskripsi Postingan</th>
+                                <td>:</td>
+                                <td>{{ $post->post_description }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Isi Postingan</th>
                                 <td>:</td>
                                 <td>
                                     {{ $post->post_body }}

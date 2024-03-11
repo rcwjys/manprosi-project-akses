@@ -25,9 +25,17 @@
                             aria-describedby="emailHelp" name="post_title" required>
                     </div>
 
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Deskripsi Postingan</label>
+                        <input type="text" value="{{ $post->post_description }}" class="form-control"
+                            id="exampleInputEmail1" aria-describedby="emailHelp" name="post_description" required>
+                        @error('post_description')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
 
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Content</label>
+                        <label for="exampleInputEmail1">Isi Postingan</label>
                         <input type="text" value="{{ $post->post_body }}" class="form-control" id="exampleInputEmail1"
                             aria-describedby="emailHelp" name="post_body" required>
                     </div>

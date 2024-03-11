@@ -38,6 +38,9 @@
                                     <h5 class="card-title text-capitalize">
                                         {{ $post->post_title }}
                                     </h5>
+                                    <p class="card-text">
+                                        {{ $post->post_description }}
+                                    </p>
                                     <a href="{{ route('post-detail', ['post_id' => $post->post_id]) }}" class="card-link"
                                         style="color: #019F90;">Details
                                     </a>

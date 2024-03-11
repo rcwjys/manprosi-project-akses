@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 
+use Carbon\Carbon;
+
+
 class EducationController extends Controller
 {
     public function educationIndex()
@@ -29,6 +32,7 @@ class EducationController extends Controller
         $validatePost = $request->validate([
             'post_title' => ['required', 'unique:posts'],
             'post_body' => ['required'],
+            'post_description' => ['required'],
             'employeeId' => ['required']
         ]);
 
@@ -50,9 +54,11 @@ class EducationController extends Controller
         $post = Post::find($request->post_id);
         $post->post_title = $request->post_title;
         $post->post_body = $request->post_body;
+        $post->post_description = $request->post_description;
         $post->update();
 
         session()->flash('postUpdate', 'Data Postingan Berhasil Di Perbaharui');
+
         return redirect(url('/education/detail-post/' . $request->post_id));
     }
 
@@ -64,5 +70,20 @@ class EducationController extends Controller
         session()->flash('postDeleted', 'Data Postingan Berhasil Di Hapus');
 
         return redirect(url('/education'));
+    }
+
+    // * Customer Section
+
+    public function customerIndex()
+    {
+        $posts = Post::all();
+        return view('customer.education-page')->with(compact('posts'));
+    }
+
+    public function educationDetail(Request $request)
+    {
+        $post = Post::with('employee')->find($request->post_id);
+        $uploadDate = Carbon::parse($post->created_at)->format('d F Y');
+        return view('customer.education-detail')->with(compact(['post', 'uploadDate']));
     }
 }

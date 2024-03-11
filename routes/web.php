@@ -43,6 +43,12 @@ route::middleware([GuestMiddleware::class])->group(function () {
     // * Send Message Feature
 
     route::post('/messages/create', [MessageController::class, 'store'])->name('message.create');
+
+    // * Education Page
+
+    route::get('/public-education', [EducationController::class, 'customerIndex']);
+
+    route::get('/public-education/{post_id}', [EducationController::class, 'educationDetail']);
 });
 
 

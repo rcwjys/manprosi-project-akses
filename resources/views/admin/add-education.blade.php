@@ -29,6 +29,15 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="exampleInputEmail1">Deskripsi Postingan</label>
+                        <input type="text" value="{{ old('post_description') }}" class="form-control"
+                            id="exampleInputEmail1" aria-describedby="emailHelp" name="post_description" required>
+                        @error('post_description')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
                         <label for="exampleInputEmail1">Isi Postingan</label>
                         <textarea class="form-control @error('post_body') is-invalid @enderror " name="post_body"
                             id="exampleFormControlTextarea1" rows="5" required></textarea>

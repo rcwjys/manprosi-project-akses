@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id('post_id', 255);
             $table->string('post_title', 100);
+            $table->text('post_description');
             $table->text('post_body');
             $table->unsignedBigInteger('employeeId');
             $table->foreign('employeeId')->references('employeeId')->on('employees');
