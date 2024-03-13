@@ -18,6 +18,8 @@ return new class extends Migration
             $table->text('medicineInformation');
             $table->date('expiredDate');
             $table->string('medicinePeriod', 50);
+            $table->bigInteger('buyingPrice');
+            $table->bigInteger('sellingPrice');
             $table->unsignedBigInteger('recipeId');
             $table->unsignedBigInteger('medicineUnitId');
             $table->unsignedBigInteger('therapyClassId');

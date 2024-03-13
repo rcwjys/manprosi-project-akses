@@ -15,7 +15,7 @@ class Medicine extends Model
 
     protected $guarded = ['medicineId'];
 
-    protected $fillable = ['medicineName', 'medicineStock', 'medicineInformation', 'expiredDate', 'medicinePeriod', 'recipeId', 'medicineUnitId', 'therapyClassId', 'subTherapyClassId', 'created_at', 'updated_at'];
+    protected $fillable = ['medicineName', 'medicineStock', 'medicineInformation', 'expiredDate', 'medicinePeriod', 'buyingPrice', 'sellingPrice', 'recipeId', 'medicineUnitId', 'therapyClassId', 'subTherapyClassId', 'created_at', 'updated_at'];
 
     public function recipe()
     {

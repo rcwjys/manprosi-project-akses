@@ -52,6 +52,18 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="exampleInputEmail1">Harga Beli Obat</label>
+                        <input type="integer" value="{{ old('buyingPrice') }}" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp" name="buyingPrice" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Harga Jual Obat</label>
+                        <input type="integer" value="{{ old('sellingPrice') }}" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp" name="sellingPrice" required>
+                    </div>
+
+                    <div class="form-group">
                         <label for="exampleInputEmail1">Resep Obat</label>
                         <select class="form-control" name="recipeId">
                             <option value="" selected disabled>Resep Obat</option>

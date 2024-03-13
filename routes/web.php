@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FormulariumController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\EducationController;
+use App\Http\Controllers\OrderController;
 
 // * Middleware
 use App\Http\Middleware\AuthMiddleware;
@@ -171,8 +172,6 @@ route::middleware([AuthMiddleware::class])->group(function () {
 // * Routing for Admin
 
 route::middleware([AuthMiddleware::class, AdminMiddleware::class])->group(function () {
-
-
 
     // * Manage Employee Feature
     route::get('/employee', [EmployeeController::class, 'employee'])->name('admin.employee');

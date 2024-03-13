@@ -41,6 +41,8 @@ class MedicineManagementController extends Controller
             'medicineStock' => ['required'],
             'medicineInformation' => ['required'],
             'expiredDate' => ['required'],
+            'buyingPrice' => ['required'],
+            'sellingPrice' => ['required'],
             'medicinePeriod' => ['required'],
             'recipeId' => ['required'],
             'medicineUnitId' => ['required'],
@@ -89,6 +91,8 @@ class MedicineManagementController extends Controller
         $medicine->medicineStock = $req->medicineStock;
         $medicine->medicineInformation = $req->medicineInformation;
         $medicine->expiredDate = $req->expiredDate;
+        $medicine->buyingPrice = $req->buyingPrice;
+        $medicine->sellingPrice = $req->sellingPrice;
         $medicine->recipeId = $req->recipeId;
         $medicine->medicineUnitId = $req->medicineUnitId;
         $medicine->therapyClassId = $req->therapyClassId;

@@ -50,6 +50,16 @@
                                 <td>{{ $medicine->medicinePeriod }} </td>
                             </tr>
                             <tr>
+                                <th scope="row" style="width: 40vw;">Harga Beli Obat </th>
+                                <td>:</td>
+                                <td>Rp. {{ $medicine->buyingPrice }} </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" style="width: 40vw;">Harga Jual Obat </th>
+                                <td>:</td>
+                                <td>Rp. {{ $medicine->sellingPrice }} </td>
+                            </tr>
+                            <tr>
                                 <th scope="row" style="width: 40vw;">Resep Obat</th>
                                 <td>:</td>
                                 <td>{{ $recipe->recipe->recipe }}</td>

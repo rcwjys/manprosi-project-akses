@@ -26,6 +26,16 @@
                                 <td>{{ $medicine->medicineName }} </td>
                             </tr>
                             <tr>
+                                <th scope="row" style="width: 40vw;">Stok Obat </th>
+                                <td>:</td>
+                                <td>{{ $medicine->medicineStock }} </td>
+                            </tr>
+                            <tr>
+                                <th scope="row" style="width: 40vw;">Tanggal Kadaluarsa Obat </th>
+                                <td>:</td>
+                                <td>{{ $medicine->expiredDate }} </td>
+                            </tr>
+                            <tr>
                                 <th scope="row" style="width: 40vw;">Informasi Obat </th>
                                 <td>:</td>
                                 <td>{{ $medicine->medicineInformation }} </td>
