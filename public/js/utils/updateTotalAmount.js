@@ -1,4 +1,4 @@
-export function updateTotalAmount (itemQty, itemPrice) {
+export function updateTotalAmount(itemQty, itemPrice) {
 
     const priceSpan = document.getElementById('totalAmountSpan');
     let totalPrice = 0;

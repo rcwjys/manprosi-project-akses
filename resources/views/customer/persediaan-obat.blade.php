@@ -18,6 +18,10 @@
                 <p><span id="itemName"></span> Berhasil Ditambahkan Ke dalam Keranjang</p>
                 <button type="button" class="btn-close btn-close-sm" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
+            <div class="alert alert-danger alert-dismissible fade show display-none" role="alert" id="error-alert">
+                <p>Invalid tipe data</p>
+                <button type="button" class="btn-close btn-close-sm" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
             <div class="container mt-3">
                 @if (count($medicines) === 0)
                     <h1 class="mt-5 text-center">Obat Tidak Tersedia</h1>

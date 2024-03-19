@@ -97,13 +97,13 @@ function createTableRow(medicineName, medicinePrice) {
 function validateItemQuantity(itemQty) {
     for (let i = 0; i < itemQty.length; i++) {
         itemQty[i].addEventListener('blur', (event) => {
-
             event.preventDefault();
-
-            if (itemQty[i].value < 1 || itemQty[i].value === null) {
+            if (itemQty[i].value < 1 || itemQty[i].value === null || isNaN(itemQty[i].value)) {
                 itemQty[i].value = 1;
+                
             }
         });
+
         itemQty[i].addEventListener('change', () => {
             const itemQty = document.querySelectorAll('#itemQty');
             const itemPrice = document.querySelectorAll('#item_price');
