@@ -14,6 +14,10 @@
 
     <main>
         <div class="container">
+            <div class="alert alert-success alert-dismissible fade show display-none" role="alert" id="cart-alert">
+                <p><span id="itemName"></span> Berhasil Ditambahkan Ke dalam Keranjang</p>
+                <button type="button" class="btn-close btn-close-sm" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
             <div class="container mt-3">
                 @if (count($medicines) === 0)
                     <h1 class="mt-5 text-center">Obat Tidak Tersedia</h1>
@@ -76,7 +80,7 @@
                                                         <thead>
                                                             <tr>
                                                                 <th style="width: 60%;">Barang</th>
-                                                                <th style="width: 20%">Harga Per Item</th>
+                                                                <th style="width: 20%">Harga</th>
                                                                 <th style="width: 20%">Kuantitas</th>
                                                             </tr>
                                                         </thead>
@@ -86,11 +90,17 @@
                                                     </table>
                                                 </div>
                                             </div>
+
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-subtle"
-                                                    data-bs-dismiss="modal">Close</button>
-                                                <button type="submit"
-                                                    class="btn btn-primary submit-button">Checkout</button>
+                                                <div class="col">
+                                                    <p style="fw-bold">Harga Total : <span id="totalAmountSpan"></span></p>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <button type="button" class="btn btn-subtle"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                    <button type="submit"
+                                                        class="btn btn-primary submit-button">Checkout</button>
+                                                </div>
                                             </div>
                                         </form>
                                     </div>
@@ -121,8 +131,7 @@
                                         </p>
 
                                         <p id="medicine-price">
-                                            Rp. <span class="fw-bold"
-                                                id="medicine-price">{{ $medicine->sellingPrice }}</span>
+                                            Rp. <span class="fw-bold">{{ $medicine->sellingPrice }}</span>
                                         </p>
 
                                         <div class="mt-2 action-section d-flex justify-content-between align-items-center">
@@ -133,7 +142,8 @@
                                             </div>
 
                                             <div class="order-section">
-                                                <a href="" type="button" class="btn btn-primary" id="order-button"
+                                                <a href="" type="button" class="btn btn-primary"
+                                                    id="order-button"
                                                     style="background-color: #019F90; border-color: #019F90; font-weight: bold;">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                         fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">

@@ -1,10 +1,17 @@
 'use strict';
 
-export function updateAmount(cart) {
+export function updateAmount(itemQty, itemPrice) {
+  for (let i = 0; i < itemQty.length; i++) {
+      itemQty[i].addEventListener('change', (event) => {
+        event.preventDefault();
 
-  const [ ...cartItems ] = cart;
-  console.log(cartItems);
-  // const itemQuantity = cart.querySelector('#item_price').value;
-  // console.log(itemQuantity);
+        const quantity = +itemQty[i].value;
+        const pricePerItem = +itemPrice[i].getAttribute('originalMedicinePrice');
+
+        itemPrice[i].value = quantity * pricePerItem;
+      });
+  }
+
 
 }
+
